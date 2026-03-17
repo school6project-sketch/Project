@@ -1,0 +1,280 @@
+﻿/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    background-color: #b22222; /* Красный, как у BBC/CNN */
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Главная */
+h1 {
+    margin: 2rem 0 1rem;
+    font-size: 2rem;
+    color: #222;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.news-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #b22222;
+}
+
+.news-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.news-summary {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    background-color: #b22222;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.read-more:hover {
+    background-color: #8b1a1a;
+}
+
+/* Страница новости */
+#news-article {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+}
+
+.article-header {
+    margin-bottom: 2rem;
+}
+
+.article-header h1 {
+    font-size: 2.2rem;
+    color: #b22222;
+    margin: 0 0 0.5rem;
+}
+
+.article-meta {
+    color: #777;
+    font-size: 1rem;
+}
+
+.article-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.error {
+    color: #b22222;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Подвал */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Кнопки лайков/дизлайков */
+.news-actions, .article-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.like-btn, .dislike-btn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.like-btn:hover {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+}
+
+.dislike-btn:hover {
+    background-color: #ffebee;
+    border-color: #f44336;
+}
+
+.like-btn {
+    color: #2196f3;
+}
+
+.dislike-btn {
+    color: #f44336;
+}
+
+nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Комментарии */
+.comments-section {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #ddd;
+}
+
+.comments-section h3 {
+    margin-bottom: 1rem;
+    color: #b22222;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border-left: 4px solid #b22222;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.comment strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+.comment p {
+    margin: 0;
+    color: #555;
+}
